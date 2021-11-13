@@ -8,6 +8,7 @@ import Herosection from './Components/Pages/Herosection/Herosection';
 import HomeProduct from './Components/Pages/DroneProductHome/HomeProduct';
 import AllProducts from './Components/Pages/DroneProductHome/AllProducts';
 import Review from './Components/Shared/ReviewWithRating/Review/Review';
+import Purches from './Components/Pages/Purches/Purches';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path='/allproducts'>
             <AllProducts></AllProducts>
+          </Route>
+          <Route path='/packages/:id'>
+            <Purches></Purches>
           </Route>
           <Route path='/signup'>
             <SignUp></SignUp>

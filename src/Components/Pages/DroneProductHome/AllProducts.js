@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import Spinner from '../../Shared/Spinner/Spinner';
 import HomeProductCard from './HomeProductCard';
 
 
@@ -12,25 +13,29 @@ const AllProducts = () => {
     }, [])
 
     return (
-        <div className='my-14'>
-            <span className='text-3xl font-bold border-b-2 border-green-500'>Drone Collection</span>
-            <section className="text-gray-600">
-                <div className="container px-5 py-24 mx-auto">
-                    <div className="flex flex-wrap justify-center -m-4">
-                        {
-                            drones.map(drone =>
-                                <HomeProductCard
-                                    key={drone._id}
-                                    drone={drone}
-                                >
-                                </HomeProductCard>
+        <>
+            {drones.length === 0 ? <Spinner></Spinner> : <div className='my-14'>
+                <span className='text-3xl font-bold border-b-2 border-green-500'>Drone Collection</span>
+                <section className="text-gray-600">
+                    <div className="container px-5 py-24 mx-auto">
+                        <div className="flex flex-wrap justify-center -m-4">
+                            {
+                                drones.map(drone =>
+                                    <HomeProductCard
+                                        key={drone._id}
+                                        drone={drone}
+                                    >
+                                    </HomeProductCard>
 
-                            )
-                        }
+                                )
+                            }
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+            }
+        </>
+
     );
 };
 
