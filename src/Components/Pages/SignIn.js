@@ -12,7 +12,7 @@ export default function SignIn() {
     return (
 
         <>
-            <div className=' w-96 mx-auto py-12 px-10 shadow-xl rounded-xl'>
+            <div className=' w-96 mx-auto py-12 px-10 mb-24 shadow-xl rounded-xl'>
                 <form className='' onSubmit={handleSubmit(onSubmit)}>
                     <p className='text-2xl mb-5 font-bold'>Sign In</p>
                     {/* include validation with required or other standard HTML validation rules */}

@@ -12,7 +12,7 @@ export default function SignUp() {
     return (
 
         <>
-            <div className=' w-96 mx-auto py-12 px-10 shadow-xl rounded-xl'>
+            <div className=' w-96 mx-auto py-12 px-10 mb-24 shadow-xl rounded-xl'>
                 <form className='' onSubmit={handleSubmit(onSubmit)}>
                     <p className='text-2xl mb-5 font-bold'>Sign Up</p>
                     {/* register your input into the hook by invoking the "register" function */}
