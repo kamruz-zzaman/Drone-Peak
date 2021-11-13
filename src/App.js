@@ -10,6 +10,7 @@ import AllProducts from './Components/Pages/DroneProductHome/AllProducts';
 import Review from './Components/Shared/ReviewWithRating/Review/Review';
 import Purches from './Components/Pages/Purches/Purches';
 import AuthProvider from './Components/Context/AuthProvider';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
             <Route exact path='/allproducts'>
               <AllProducts></AllProducts>
             </Route>
-            <Route path='/packages/:id'>
+            <PrivateRoute path='/packages/:id'>
               <Purches></Purches>
-            </Route>
+            </PrivateRoute>
             <Route path='/signup'>
               <SignUp></SignUp>
             </Route>
