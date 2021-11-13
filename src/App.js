@@ -5,6 +5,7 @@ import Footer from './Components/Shared/Footer/Footer';
 import SignUp from './Components/Pages/SignUp/SignUp';
 import SignIn from './Components/Pages/SignIn/SignIn';
 import Herosection from './Components/Pages/Herosection/Herosection';
+import HomeProduct from './Components/Pages/DroneProductHome/HomeProduct';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Herosection></Herosection>
+            <HomeProduct></HomeProduct>
           </Route>
           <Route path='/signup'>
             <SignUp></SignUp>
