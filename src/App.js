@@ -7,6 +7,7 @@ import SignIn from './Components/Pages/SignIn/SignIn';
 import Herosection from './Components/Pages/Herosection/Herosection';
 import HomeProduct from './Components/Pages/DroneProductHome/HomeProduct';
 import AllProducts from './Components/Pages/DroneProductHome/AllProducts';
+import Review from './Components/Shared/ReviewWithRating/Review/Review';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/'>
             <Herosection></Herosection>
             <HomeProduct></HomeProduct>
+            <Review></Review>
           </Route>
           <Route exact path='/allproducts'>
             <AllProducts></AllProducts>
