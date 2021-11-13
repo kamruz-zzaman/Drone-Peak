@@ -11,6 +11,7 @@ import Review from './Components/Shared/ReviewWithRating/Review/Review';
 import Purches from './Components/Pages/Purches/Purches';
 import AuthProvider from './Components/Context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Contuct from './Components/Pages/ContactWithUs/Contuct';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Herosection></Herosection>
               <HomeProduct></HomeProduct>
               <Review></Review>
+              <Contuct></Contuct>
             </Route>
             <Route exact path='/allproducts'>
               <AllProducts></AllProducts>
