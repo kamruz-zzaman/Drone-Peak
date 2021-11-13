@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Components/Shared/Header/Header';
-import SignUp from './Components/Pages/SignUp';
-import SignIn from './Components/Pages/SignIn';
 import Footer from './Components/Shared/Footer/Footer';
+import SignUp from './Components/Pages/SignUp/SignUp';
+import SignIn from './Components/Pages/SignIn/SignIn';
+import Herosection from './Components/Pages/Herosection/Herosection';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Header></Header>
         <Switch>
           <Route exact path='/'>
-
+            <Herosection></Herosection>
           </Route>
           <Route path='/signup'>
             <SignUp></SignUp>

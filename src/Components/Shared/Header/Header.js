@@ -5,10 +5,10 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../../../Images/faveicon.jpg'
 import logo1 from '../../../Images/logo1.png'
 import logo2 from '../../../Images/logo.png'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 const navigation = [
-    { img: `${logo2}`, current: false },
-    { name: 'Dashboard', href: '/signin', current: true },
+    { img: `${logo2}`, href: '/' },
+    { name: 'Dashboard', href: '/signin', current: false },
     { name: 'Team', href: '#', current: false },
     { name: 'Projects', href: '#', current: false },
     { name: 'Calendar', href: '#', current: false },
@@ -20,14 +20,14 @@ function classNames(...classes) {
 
 export default function Example() {
     return (
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-green-500 ">
             {({ open }) => (
                 <>
                     <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                         <div className="relative flex items-center justify-between h-16">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button*/}
-                                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white  bg-green-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
                                         <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -39,26 +39,26 @@ export default function Example() {
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
 
-                                    <Link to='/'>
+                                    <NavLink activeClassName="selected" to='/'>
                                         <img
                                             className="hidden lg:block h-8 w-auto"
                                             src={logo}
                                             alt="Workflow"
                                         />
-                                    </Link>
-                                    <Link to='/'>
+                                    </NavLink>
+                                    <NavLink activeClassName="selected" to='/'>
                                         <img
                                             className="hidden lg:block h-8 w-auto "
                                             src={logo1}
                                             alt="Workflow"
                                         />
-                                    </Link>
+                                    </NavLink>
 
                                 </div>
                                 <div className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <Link
+                                            <NavLink activeClassName="selected"
                                                 key={item.name}
                                                 to={item.href}
                                                 className={classNames(
@@ -68,7 +68,7 @@ export default function Example() {
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </Link>
+                                            </NavLink>
                                         ))}
                                     </div>
                                 </div>
@@ -144,7 +144,8 @@ export default function Example() {
                     <Disclosure.Panel className="sm:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             {navigation.map((item) => (
-                                <Link
+                                <NavLink
+                                    activeClassName="selected"
                                     key={item.name}
                                     to={item.href}
                                     className={classNames(
@@ -155,7 +156,7 @@ export default function Example() {
                                 >
                                     {item.name}
                                     <img className='w-32 mx-auto' src={item.img} alt="" />
-                                </Link>
+                                </NavLink>
                             ))}
                         </div>
                     </Disclosure.Panel>
