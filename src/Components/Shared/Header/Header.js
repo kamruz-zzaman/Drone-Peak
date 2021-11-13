@@ -5,7 +5,7 @@ import logo from '../../../Images/faveicon.jpg'
 import logo1 from '../../../Images/logo1.png'
 import logo2 from '../../../Images/logo.png'
 import { Link, NavLink } from 'react-router-dom'
-import useFirebase from '../../../Hooks/useFirebase'
+import useAuth from '../../../Hooks/useAuth'
 const navigation = [
     { img: `${logo2}`, href: '/' },
     { name: 'Dashboard', href: '/signin', current: false },
@@ -18,7 +18,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-    const { user, logout } = useFirebase();
+    const { user, logout } = useAuth();
     return (
         <Disclosure as="nav" className="bg-green-500 ">
             {({ open }) => (

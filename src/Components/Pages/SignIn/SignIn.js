@@ -1,14 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useHistory } from "react-router-dom";
-import useFirebase from "../../../Hooks/useFirebase";
+import useAuth from "../../../Hooks/useAuth";
 import img from '../../../Images/google-logo.png'
 import Spinner from "../../Shared/Spinner/Spinner";
 
 export default function SignIn() {
     const location = useLocation();
     const history = useHistory();
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useFirebase();
+    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
