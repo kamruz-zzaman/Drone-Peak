@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 const navigation = [
     { img: `${logo2}`, href: '/' },
     { name: 'Dashboard', href: '/signin', current: false },
-    { name: 'Team', href: '#', current: false },
+    { name: 'Collections', href: '/allproducts', current: false },
     { name: 'Projects', href: '#', current: false },
     { name: 'Calendar', href: '#', current: false },
 ]
@@ -62,7 +62,7 @@ export default function Example() {
                                                 key={item.name}
                                                 to={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                    item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-green-600 hover:text-white',
                                                     'px-3 py-2 rounded-md text-sm font-medium'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}

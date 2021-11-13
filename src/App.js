@@ -6,6 +6,7 @@ import SignUp from './Components/Pages/SignUp/SignUp';
 import SignIn from './Components/Pages/SignIn/SignIn';
 import Herosection from './Components/Pages/Herosection/Herosection';
 import HomeProduct from './Components/Pages/DroneProductHome/HomeProduct';
+import AllProducts from './Components/Pages/DroneProductHome/AllProducts';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <Route exact path='/'>
             <Herosection></Herosection>
             <HomeProduct></HomeProduct>
+          </Route>
+          <Route exact path='/allproducts'>
+            <AllProducts></AllProducts>
           </Route>
           <Route path='/signup'>
             <SignUp></SignUp>

@@ -16,7 +16,7 @@ export default function Example() {
 
 
                         <Link
-                            to="#"
+                            to='/allproducts'
                             className="inline-block mt-10 text-center bg-green-400 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-green-500"
                         >
                             View Collection

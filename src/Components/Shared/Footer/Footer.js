@@ -6,7 +6,7 @@ import logo2 from '../../../Images/drone.png'
 const Footer = () => {
     return (
         <>
-            <footer className="text-gray-600 body-font bg-green-100 ">
+            <footer className="text-gray-600 body-font bg-gray-100 ">
                 <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
                         <img src={logo2} alt="" />
