@@ -8,9 +8,9 @@ import { Link, NavLink } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
 const navigation = [
     { img: `${logo2}`, href: '/' },
-    { name: 'Dashboard', href: '/signin', current: false },
     { name: 'Collections', href: '/allproducts', current: false },
-    { name: 'Projects', href: '#', current: false },
+    { name: 'Contact Us', href: '/contactus', current: false },
+    { name: 'Dashboard', href: '/dashboard', current: false },
     { name: 'Calendar', href: '#', current: false },
 ]
 function classNames(...classes) {

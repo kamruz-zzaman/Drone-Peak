@@ -10,7 +10,7 @@ const AllProducts = () => {
         fetch('http://localhost:5000/drones')
             .then(res => res.json())
             .then(data => setDrones(data))
-    }, [])
+    }, []);
 
     return (
         <>

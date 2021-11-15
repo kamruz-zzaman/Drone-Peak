@@ -7,27 +7,33 @@ import SignIn from './Components/Pages/SignIn/SignIn';
 import Herosection from './Components/Pages/Herosection/Herosection';
 import HomeProduct from './Components/Pages/DroneProductHome/HomeProduct';
 import AllProducts from './Components/Pages/DroneProductHome/AllProducts';
-import Review from './Components/Shared/ReviewWithRating/Review/Review';
 import Purches from './Components/Pages/Purches/Purches';
 import AuthProvider from './Components/Context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Contuct from './Components/Pages/ContactWithUs/Contuct';
+import Navbar from './Components/Pages/Dashboard/Dashboard';
+import ReviewsGet from './Components/Shared/ReviewWithRating/Review/ReviewsGet';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-          <Header></Header>
+          {/* <Header></Header> */}
           <Switch>
             <Route exact path='/'>
+              <Header></Header>
               <Herosection></Herosection>
               <HomeProduct></HomeProduct>
-              <Review></Review>
               <Contuct></Contuct>
+              <ReviewsGet></ReviewsGet>
+              <Footer></Footer>
             </Route>
-            <Route exact path='/allproducts'>
+            <Route path='/allproducts'>
               <AllProducts></AllProducts>
+            </Route>
+            <Route path='/contactus'>
+              <Contuct></Contuct>
             </Route>
             <PrivateRoute path='/packages/:id'>
               <Purches></Purches>
@@ -38,8 +44,11 @@ function App() {
             <Route path='/signin'>
               <SignIn></SignIn>
             </Route>
+            <Route path='/dashboard'>
+              <Navbar></Navbar>
+            </Route>
           </Switch>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </Router>
       </AuthProvider>
     </div>

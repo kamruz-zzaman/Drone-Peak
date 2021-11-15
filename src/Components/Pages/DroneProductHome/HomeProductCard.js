@@ -11,9 +11,9 @@ const HomeProductCard = ({ drone }) => {
                 </Link>
                 <div className="mt-4 ">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{Name}</h3>
-                    <h2 className="text-gray-900 title-font text-lg font-medium">{Description.slice(0, 50)}...</h2>
+                    <h2 className="text-gray-900 title-font text-lg font-medium">{Description.slice(0, 40)}...</h2>
                     <p className="mt-1">Tk. {Price}</p>
-                    <button className='py-1 px-3 bg-white text-green-500 hover:bg-green-500 rounded-lg hover:text-white font-normal border-2 border-green-500 mt-2'><Link to={`/packages/${_id}`}> Purchase</Link></button>
+                    <button className='py-1 px-3 bg-green-500 hover:bg-green-600 rounded-lg text-white font-normal border-2 border-green-500 mt-2'><Link to={`/packages/${_id}`}> Purchase</Link></button>
                 </div>
             </div>
         </>
