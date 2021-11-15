@@ -7,7 +7,7 @@ const Order = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { user } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user.email}`)
+        fetch(`https://enigmatic-woodland-41119.herokuapp.com/order?email=${user.email}`)
             .then(res => res.json())
             .then(data => SetOrders(data));
         setIsLoading(false)

@@ -7,7 +7,7 @@ const ManageOrder = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { user } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/order`)
+        fetch(`https://enigmatic-woodland-41119.herokuapp.com/order`)
             .then(res => res.json())
             .then(data => SetOrders(data));
         setIsLoading(false)
@@ -15,7 +15,7 @@ const ManageOrder = () => {
     const handleUpdateUser = (id) => {
         const confirm = window.confirm('Are you sure for Approve Shipped?');
         if (confirm) {
-            fetch(`http://localhost:3000/order/${id}`, {
+            fetch(`https://enigmatic-woodland-41119.herokuapp.com/order/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

@@ -5,7 +5,7 @@ const AddCollection = () => {
     const { register, handleSubmit, reset, setValue } = useForm();
     // // make hook form respons
     const onSubmit = data => {
-        fetch('http://localhost:5000/drones', {
+        fetch('https://enigmatic-woodland-41119.herokuapp.com/drones', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

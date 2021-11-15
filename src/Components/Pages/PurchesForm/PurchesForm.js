@@ -8,7 +8,7 @@ const PurchesForm = (props) => {
     const { register, handleSubmit, reset, setValue } = useForm();
     // // make hook form respons
     const onSubmit = data => {
-        fetch('http://localhost:5000/order', {
+        fetch('https://enigmatic-woodland-41119.herokuapp.com/order', {
 
             method: 'POST',
             headers: {

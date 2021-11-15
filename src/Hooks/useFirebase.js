@@ -86,7 +86,7 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/users/${user.email}`)
+        fetch(`https://enigmatic-woodland-41119.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => console.log(data))
     }, [user.email])
@@ -104,7 +104,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://enigmatic-woodland-41119.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

@@ -8,7 +8,7 @@ const Purches = () => {
     const [purchesDrone, setPurchesDrone] = useState([]);
     // fetching packages by id
     useEffect(() => {
-        fetch(`http://localhost:5000/drones/${id}`)
+        fetch(`https://enigmatic-woodland-41119.herokuapp.com/drones/${id}`)
             .then(res => res.json())
             .then(data => setTimeout(() => { setPurchesDrone(data) }, 1000))
     }, []);

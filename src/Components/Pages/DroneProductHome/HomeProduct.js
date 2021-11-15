@@ -8,7 +8,7 @@ import HomeProductCard from './HomeProductCard';
 const HomeProduct = () => {
     const [drones, setDrones] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/drones')
+        fetch('https://enigmatic-woodland-41119.herokuapp.com/drones')
             .then(res => res.json())
             .then(data => setTimeout(() => { setDrones(data) }, 1000))
     }, [])
