@@ -8,7 +8,7 @@ import Spinner from "../../Shared/Spinner/Spinner";
 export default function SignIn() {
     const location = useLocation();
     const history = useHistory();
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+    const { user, loginUser, signInWithGoogle, isLoading } = useAuth();
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
@@ -28,7 +28,6 @@ export default function SignIn() {
                     <button className='px-3 py-2 rounded-lg bg-green-300 hover:bg-green-500 ' type="submit">Sign In</button>
                     <p>Did not have a account? <Link to='/signup' className='text-blue-500 border-b-2 border-blue-400'>Sign Up</Link></p>
                     {user?.email && <p className='text-green-500'>Login successfully!</p>}
-                    {authError && <p className='text-red-500'>{authError}</p>}
                 </form>
                 <div>
                     <p className='font-bold'>Or!</p>

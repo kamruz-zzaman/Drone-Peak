@@ -1,17 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../../Hooks/useAuth';
-import OrderCurd from './OrderCurd';
+import ManageOrderCart from './ManageOrderCart';
 
-const Order = () => {
+const ManageOrder = () => {
     const [orders, SetOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { user } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user.email}`)
+        fetch(`http://localhost:5000/order`)
             .then(res => res.json())
             .then(data => SetOrders(data));
         setIsLoading(false)
     }, []);
+    const handleUpdateUser = (id) => {
+        const confirm = window.confirm('Are you sure for Approve Shipped?');
+        if (confirm) {
+            fetch(`http://localhost:3000/order/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(orders)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount > 0) {
+                        alert('Shipped Successfull')
+                    }
+                    window.location.reload();
+                })
+        }
+    }
     const handleDeletUser = (id) => {
         const delet = window.confirm('Are Your Sure For Delation?');
         if (delet) {
@@ -30,7 +49,7 @@ const Order = () => {
     }
     return (
         <div className='container mx-auto'>
-            <span className='text-3xl font-bold text-gray-700 border-b-2 '>Your Order </span>
+            <span className='text-3xl font-bold text-gray-700 border-b-2 '>Manage Order </span>
             <div className="flex flex-col">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -48,7 +67,7 @@ const Order = () => {
                                             scope="col"
                                             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                         >
-                                            Product
+                                            Title
                                         </th>
                                         <th
                                             scope="col"
@@ -56,7 +75,12 @@ const Order = () => {
                                         >
                                             Status
                                         </th>
-
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        >
+                                            Role
+                                        </th>
                                         <th scope="col" className="relative px-6 py-3">
                                             <span className="sr-only">Edit</span>
                                         </th>
@@ -65,11 +89,13 @@ const Order = () => {
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {
                                         orders.map(order =>
-                                            <OrderCurd
+                                            <ManageOrderCart
+                                                key={order._id}
                                                 order={order}
+                                                updateStatus={handleUpdateUser}
                                                 deletStatus={handleDeletUser}
                                             >
-                                            </OrderCurd>
+                                            </ManageOrderCart>
 
                                         )
                                     }
@@ -82,4 +108,4 @@ const Order = () => {
         </div>
     );
 };
-export default Order;
+export default ManageOrder;

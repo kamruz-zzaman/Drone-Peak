@@ -10,7 +10,7 @@ export default function SignUp() {
     const { user, registerUser, signInWithGoogle } = useAuth();
     const history = useHistory();
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    const { register, handleSubmit, isLoading, authError } = useForm();
+    const { register, handleSubmit, isLoading } = useForm();
     const onSubmit = data => {
         if (data.password !== data.ReEnterPassword) {
             alert('Your password did not match');
@@ -36,7 +36,6 @@ export default function SignUp() {
                     <button className='px-3 py-2 rounded-lg bg-green-300 hover:bg-green-500 ' type="submit">Sign Up</button>
                     <p>Already have a account? <Link to='/signin' className='text-blue-500 border-b-2 border-blue-400'>Sign In</Link></p>
                     {user?.email && <p className='text-green-500'>Login successfully!</p>}
-                    {authError && <p className='text-red-500'>{authError}</p>}
                 </form>
                 <div>
                     <p className='font-bold'>Or!</p>

@@ -1,7 +1,7 @@
 import React from 'react';
 import useAuth from '../../../../../Hooks/useAuth';
 
-const OrderCurd = ({ order, deletStatus }) => {
+const ManageOrderCart = ({ order, updateStatus, deletStatus }) => {
     const { user } = useAuth()
 
     const { _id, Name, Email, Model, Price, Status } = order;
@@ -28,15 +28,16 @@ const OrderCurd = ({ order, deletStatus }) => {
                         {Status}
                     </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{ }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">admin</td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <button onClick={() => deletStatus(_id)} className='border bg-red-400 hover:bg-red-500 rounded-lg py-1 px-1'>Delete</button>
-                    </td>
+                    <button onClick={() => updateStatus(_id)} className='border bg-green-400 hover:bg-green-500 rounded-lg py-1 px-1'>Make Shipped</button>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <button onClick={() => deletStatus(_id)} className='border bg-red-400 hover:bg-red-500 rounded-lg py-1 px-1'>Delete</button>
                 </td>
             </tr>
         </>
     );
 };
 
-export default OrderCurd;
+export default ManageOrderCart;

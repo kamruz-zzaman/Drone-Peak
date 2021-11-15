@@ -19,7 +19,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          {/* <Header></Header> */}
           <Switch>
             <Route exact path='/'>
               <Header></Header>
@@ -30,25 +29,32 @@ function App() {
               <Footer></Footer>
             </Route>
             <Route path='/allproducts'>
+              <Header></Header>
               <AllProducts></AllProducts>
+              <Footer></Footer>
             </Route>
             <Route path='/contactus'>
+              <Header></Header>
               <Contuct></Contuct>
+              <Footer></Footer>
             </Route>
             <PrivateRoute path='/packages/:id'>
               <Purches></Purches>
             </PrivateRoute>
             <Route path='/signup'>
+              <Header></Header>
               <SignUp></SignUp>
+              <Footer></Footer>
             </Route>
             <Route path='/signin'>
+              <Header></Header>
               <SignIn></SignIn>
+              <Footer></Footer>
             </Route>
-            <Route path='/dashboard'>
+            <PrivateRoute path='/dashboard'>
               <Navbar></Navbar>
-            </Route>
+            </PrivateRoute>
           </Switch>
-          {/* <Footer></Footer> */}
         </Router>
       </AuthProvider>
     </div>

@@ -17,6 +17,8 @@ import useAuth from '../../../Hooks/useAuth';
 import Order from './DRoutes/Order/Order';
 import AddCollection from './DRoutes/AddCollection/AddCollection';
 import AddReview from './DRoutes/AddReview/AddReview';
+import MakeAdmin from './DRoutes/Make Role/MakeAdmin';
+import ManageOrder from './DRoutes/ManageOrder/ManageOrder';
 
 function Navbar() {
     let { path, url } = useRouteMatch();
@@ -24,9 +26,7 @@ function Navbar() {
 
     const showSidebar = () => setSidebar(!sidebar);
 
-    const { user } = useAuth();
-    console.log(user);
-
+    const { user, admin } = useAuth();
     return (
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
@@ -64,6 +64,7 @@ function Navbar() {
                                                 <span>{item.title1}</span>
                                             </Link>
                                         </li>
+
                                     </li>
                                 </>
                             );
@@ -72,6 +73,9 @@ function Navbar() {
                 </nav>
             </IconContext.Provider>
             <Switch>
+                <Route exact path={path}>
+                    <Order></Order>
+                </Route>
                 <Route path={`${path}/products`}>
                     <Products></Products>
                 </Route>
@@ -83,6 +87,12 @@ function Navbar() {
                 </Route>
                 <Route path={`${path}/review`}>
                     <AddReview></AddReview>
+                </Route>
+                <Route path={`${path}/role`}>
+                    <MakeAdmin></MakeAdmin>
+                </Route>
+                <Route path={`${path}/morder`}>
+                    <ManageOrder></ManageOrder>
                 </Route>
             </Switch>
         </>
