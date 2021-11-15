@@ -39,7 +39,9 @@ function App() {
               <Footer></Footer>
             </Route>
             <PrivateRoute path='/packages/:id'>
+              <Header></Header>
               <Purches></Purches>
+              <Footer></Footer>
             </PrivateRoute>
             <Route path='/signup'>
               <Header></Header>
