@@ -34,7 +34,7 @@ const ManageOrder = () => {
     const handleDeletUser = (id) => {
         const delet = window.confirm('Are Your Sure For Delation?');
         if (delet) {
-            fetch(`https://dark-tomb-38660.herokuapp.com/booking/${id}`, {
+            fetch(`https://enigmatic-woodland-41119.herokuapp.com/order/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

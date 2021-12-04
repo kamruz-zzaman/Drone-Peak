@@ -13,6 +13,7 @@ export default function SignIn() {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         loginUser(data.email, data.password, location, history)
+
     }
 
     return (
@@ -31,7 +32,7 @@ export default function SignIn() {
                 </form>
                 <div>
                     <p className='font-bold'>Or!</p>
-                    <button onClick={signInWithGoogle} className='mx-5 hover:bg-green-300 border-2 border-green-500 py-1 px-7 rounded-3xl'><img className='w-6 inline ' src={img} alt="" /> Continue with Google </button>
+                    <button onClick={() => signInWithGoogle(location, history)} className='mx-5 hover:bg-green-300 border-2 border-green-500 py-1 px-7 rounded-3xl'><img className='w-6 inline ' src={img} alt="" /> Continue with Google </button>
                 </div>
             </div>
         </>

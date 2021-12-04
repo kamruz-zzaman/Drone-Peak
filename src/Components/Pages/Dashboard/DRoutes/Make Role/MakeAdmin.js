@@ -33,7 +33,7 @@ const MakeAdmin = () => {
                         <div>
                             <p className="text-xl text-left font-bold mb-1">Make Admin</p>
                             <div >
-                                <input type="email" id="p-name"{...register("name", { required: true })} className="border-2 focus:ring-2 focus:ring-green-600  px-8 py-1 rounded-xl w-full bg-green-100"
+                                <input type="email" id="p-name"{...register("email", { required: true })} className="border-2 focus:ring-2 focus:ring-green-600  px-8 py-1 rounded-xl w-full bg-green-100"
                                     placeholder="E-mail" />
                             </div>
                         </div>

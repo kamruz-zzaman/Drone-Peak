@@ -55,7 +55,7 @@ const PurchesForm = (props) => {
                         <div className="form-group row">
                             <p className="text-xl text-left font-bold mb-1">Location</p>
                             <div>
-                                <input type="tel" id="contact"{...register("locaton", { required: true })} className="border-2  px-8 py-1 rounded-xl w-full focus:ring-2 focus:ring-green-600 bg-green-100"
+                                <input type="text" id="contact"{...register("locaton", { required: true })} className="border-2  px-8 py-1 rounded-xl w-full focus:ring-2 focus:ring-green-600 bg-green-100"
                                     placeholder="location" />
                             </div>
                         </div>

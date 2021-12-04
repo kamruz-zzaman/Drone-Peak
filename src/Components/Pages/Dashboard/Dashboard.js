@@ -5,20 +5,19 @@ import { SidebarData } from './Sidemenu';
 import './Dashboard.css';
 import { IconContext } from 'react-icons';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
-import Products from './DRoutes/Products';
 import useAuth from '../../../Hooks/useAuth';
 import Order from './DRoutes/Order/Order';
 import AddCollection from './DRoutes/AddCollection/AddCollection';
 import AddReview from './DRoutes/AddReview/AddReview';
 import MakeAdmin from './DRoutes/Make Role/MakeAdmin';
 import ManageOrder from './DRoutes/ManageOrder/ManageOrder';
+import MakePayment from './DRoutes/AddReview/MakePayment';
+import ManageCollection from './ManageCollection/ManageCollection';
 
 function Navbar() {
     let { path, url } = useRouteMatch();
@@ -26,7 +25,8 @@ function Navbar() {
 
     const showSidebar = () => setSidebar(!sidebar);
 
-    const { user, admin } = useAuth();
+    const { user, admin, logout } = useAuth();
+    console.log(admin);
     return (
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
@@ -48,37 +48,45 @@ function Navbar() {
                                 <p className='text-white text-lg'>{user.displayName}</p>
                             </div>
                         </li>
+                        <li className='nav-text'>
+                            <Link to='/'>
+                                <AiIcons.AiFillHome />
+                                <span>Home</span>
+                            </Link>
+                        </li>
 
                         {SidebarData.map((item, index) => {
                             return (
                                 <>
-
-                                    <li key={index} className={item.cName}>
+                                    {!admin && <li key={index} className={item.cName}>
                                         <Link to={`${url}${item.path}`}>
                                             {item.icon}
                                             <span>{item.title}</span>
                                         </Link>
-                                        <li key={index} className={item.cName1}>
-                                            <Link to='/'>
-                                                {item.icon1}
-                                                <span>{item.title1}</span>
-                                            </Link>
-                                        </li>
+
+                                    </li>}
+                                    {admin && <li key={index} className={item.cName2}>
+                                        <Link to={`${url}${item.path2}`}>
+                                            {item.icon2}
+                                            <span>{item.title2}</span>
+                                        </Link>
 
                                     </li>
+                                    }
                                 </>
                             );
                         })}
+                        <button onClick={logout} className='hover:bg-green-600 bg-green-400 text-red-600 font-bold py-1 px-2 rounded-lg'>SignOut</button>
                     </ul>
                 </nav>
             </IconContext.Provider>
             <Switch>
-                <Route exact path={path}>
+                {admin && <Route exact path={path}>
+                    <ManageOrder></ManageOrder>
+                </Route>}
+                {!admin && <Route exact path={path}>
                     <Order></Order>
-                </Route>
-                <Route path={`${path}/products`}>
-                    <Products></Products>
-                </Route>
+                </Route>}
                 <Route path={`${path}/yorder`}>
                     <Order></Order>
                 </Route>
@@ -93,6 +101,12 @@ function Navbar() {
                 </Route>
                 <Route path={`${path}/morder`}>
                     <ManageOrder></ManageOrder>
+                </Route>
+                <Route path={`${path}/mcollection`}>
+                    <ManageCollection></ManageCollection>
+                </Route>
+                <Route path={`${path}/payment`}>
+                    <MakePayment></MakePayment>
                 </Route>
             </Switch>
         </>

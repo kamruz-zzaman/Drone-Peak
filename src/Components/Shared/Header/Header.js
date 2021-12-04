@@ -3,15 +3,12 @@ import { Disclosure, Menu } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../../../Images/faveicon.jpg'
 import logo1 from '../../../Images/logo1.png'
-import logo2 from '../../../Images/logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
 const navigation = [
-    { img: `${logo2}`, href: '/' },
-    { name: 'Home', href: '/', current: false },
-    { name: 'Collections', href: '/allproducts', current: false },
-    { name: 'Contact Us', href: '/contactus', current: false },
-    { name: 'Dashboard', href: '/dashboard', current: false },
+    { name: 'Home', href: '/home' },
+    { name: 'Collections', href: '/allproducts' },
+    { name: 'Contact Us', href: '/contactus' }
 ]
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -39,14 +36,14 @@ export default function Example() {
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
 
-                                    <NavLink activeClassName="selected" to='/'>
+                                    <NavLink to=''>
                                         <img
                                             className="hidden lg:block h-8 w-auto"
                                             src={logo}
                                             alt="Workflow"
                                         />
                                     </NavLink>
-                                    <NavLink activeClassName="selected" to='/'>
+                                    <NavLink to=''>
                                         <img
                                             className="hidden lg:block h-8 w-auto "
                                             src={logo1}
@@ -58,18 +55,23 @@ export default function Example() {
                                 <div className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <NavLink activeClassName="selected"
+                                            <NavLink activeClassName="bg-green-600"
                                                 key={item.name}
                                                 to={item.href}
-                                                className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-green-600 hover:text-white',
-                                                    'px-3 py-2 rounded-md text-md font-medium'
-                                                )}
+                                                className=
+                                                'text-white hover:bg-green-600 hover:text-white px-3 py-2 rounded-md text-md font-medium'
+
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
                                             </NavLink>
                                         ))}
+                                        {
+                                            user.email && <NavLink to='/dashboard' activeClassName="bg-green-600" className='px-3 py-2 rounded-md text-md font-medium text-white hover:bg-green-600 hover:text-white'>
+                                                Dashboard
+                                            </NavLink>
+                                        }
+
                                     </div>
                                 </div>
                             </div>
@@ -104,16 +106,18 @@ export default function Example() {
                                     activeClassName="selected"
                                     key={item.name}
                                     to={item.href}
-                                    className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'block px-3 py-2 rounded-md text-base font-medium'
-                                    )}
+                                    className='text-gray-300 hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
                                     aria-current={item.current ? 'page' : undefined}
                                 >
                                     {item.name}
                                     <img className='w-32 mx-auto' src={item.img} alt="" />
                                 </NavLink>
                             ))}
+                            {
+                                user.email && <NavLink to='/dashboard' activeClassName="bg-green-600" className='text-gray-300 hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'>
+                                    Dashboard
+                                </NavLink>
+                            }
                         </div>
                     </Disclosure.Panel>
                 </>

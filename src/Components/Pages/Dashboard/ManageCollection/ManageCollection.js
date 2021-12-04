@@ -1,38 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../../../Hooks/useAuth';
-import OrderCurd from './OrderCurd';
+import ManageProductCurt from './ManageProductCurt';
 
-const Order = () => {
-    const [orders, SetOrders] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const { user } = useAuth();
+const ManageCollection = () => {
+    const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://enigmatic-woodland-41119.herokuapp.com/order`)
+        fetch('https://enigmatic-woodland-41119.herokuapp.com/drones')
             .then(res => res.json())
-            .then(data => SetOrders(data));
-        setIsLoading(false)
+            .then(data => setProduct(data))
     }, []);
-    console.log(orders);
 
     const handleDeletUser = (id) => {
         const delet = window.confirm('Are Your Sure For Delation?');
         if (delet) {
-            fetch(`https://enigmatic-woodland-41119.herokuapp.com/order/${id}`, {
+            fetch(`https://enigmatic-woodland-41119.herokuapp.com/drones/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert('delet successfully')
-                        const remainingBooking = orders.filter(booking => booking._id !== id)
-                        SetOrders(remainingBooking)
+                        const remainingBooking = product.filter(booking => booking._id !== id)
+                        setProduct(remainingBooking)
                     }
                 })
         }
     }
     return (
-        <div className='container mx-auto'>
-            <span className='text-3xl font-bold text-gray-700 border-b-2 '>Your Order </span>
+
+        <div className='container mx-auto lg:w-1/2'>
+            <span className='text-3xl font-bold text-gray-700 border-b-2 '>Manage Collection </span>
             <div className="flex flex-col">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -50,15 +46,14 @@ const Order = () => {
                                             scope="col"
                                             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                         >
-                                            Product
+                                            Price
                                         </th>
                                         <th
                                             scope="col"
                                             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                         >
-                                            Status
+                                            Manage
                                         </th>
-
                                         <th scope="col" className="relative px-6 py-3">
                                             <span className="sr-only">Edit</span>
                                         </th>
@@ -66,12 +61,13 @@ const Order = () => {
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {
-                                        orders.filter(id => id.Email === user.email).map(order =>
-                                            <OrderCurd
-                                                order={order}
+                                        product.map(products =>
+                                            <ManageProductCurt
+                                                key={products._id}
+                                                products={products}
                                                 deletStatus={handleDeletUser}
                                             >
-                                            </OrderCurd>
+                                            </ManageProductCurt>
 
                                         )
                                     }
@@ -82,6 +78,8 @@ const Order = () => {
                 </div>
             </div>
         </div>
+
     );
 };
-export default Order;
+
+export default ManageCollection;

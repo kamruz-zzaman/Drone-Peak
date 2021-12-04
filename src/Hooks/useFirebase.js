@@ -84,13 +84,12 @@ const useFirebase = () => {
         });
         return () => unsubscribed;
     }, [auth])
-
+    // find admin
     useEffect(() => {
         fetch(`https://enigmatic-woodland-41119.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setAdmin(data.admin))
     }, [user.email])
-    console.log(admin);
 
     const logout = () => {
         setIsLoading(true);

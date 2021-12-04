@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import img from '../../../Images/google-logo.png'
 import Spinner from "../../Shared/Spinner/Spinner";
@@ -9,6 +9,8 @@ export default function SignUp() {
 
     const { user, registerUser, signInWithGoogle } = useAuth();
     const history = useHistory();
+    const location = useLocation();
+
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     const { register, handleSubmit, isLoading } = useForm();
     const onSubmit = data => {
@@ -39,7 +41,7 @@ export default function SignUp() {
                 </form>
                 <div>
                     <p className='font-bold'>Or!</p>
-                    <button onClick={signInWithGoogle} className='mx-5 hover:bg-green-300 border-2 border-green-500 py-1 px-7 rounded-3xl'><img className='w-6 inline ' src={img} alt="" /> Continue with Google </button>
+                    <button onClick={() => signInWithGoogle(location, history)} className='mx-5 hover:bg-green-300 border-2 border-green-500 py-1 px-7 rounded-3xl'><img className='w-6 inline ' src={img} alt="" /> Continue with Google </button>
                 </div>
             </div>
         </>

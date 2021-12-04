@@ -12,7 +12,7 @@ const ReviewsGet = () => {
     return (
         <>
             {review.length === 0 ? <Spinner></Spinner> : <div className='my-14'>
-                <span className='text-3xl font-bold border-b-2 border-gray-200'>Reviews</span>
+                <span className='text-3xl font-bold border-b-2 border-green-400'>Reviews</span>
                 <section className="text-gray-600">
                     <div className="container px-5 py-24 mx-auto">
                         <div className="flex flex-wrap justify-center -m-4">

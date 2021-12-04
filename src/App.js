@@ -24,8 +24,16 @@ function App() {
               <Header></Header>
               <Herosection></Herosection>
               <HomeProduct></HomeProduct>
-              <Contuct></Contuct>
               <ReviewsGet></ReviewsGet>
+              <Contuct></Contuct>
+              <Footer></Footer>
+            </Route>
+            <Route exact path='/home'>
+              <Header></Header>
+              <Herosection></Herosection>
+              <HomeProduct></HomeProduct>
+              <ReviewsGet></ReviewsGet>
+              <Contuct></Contuct>
               <Footer></Footer>
             </Route>
             <Route path='/allproducts'>
